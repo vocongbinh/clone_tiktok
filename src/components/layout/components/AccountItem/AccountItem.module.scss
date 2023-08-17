@@ -1,0 +1,32 @@
+.wrapperItem {
+    display: flex;
+    align-items: center;
+    padding: 9px 16px;
+    &:hover {
+        background-color: var(--color-hover);
+    }
+}
+.avatar {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    object-fit: cover;
+}
+.content {
+    flex: 1;
+    padding-left: var(--padding-default);
+}
+.accountName {
+    font-size: var(--font-size-default);
+    font-weight: 600;
+    line-height: 21px;
+}
+.discription {
+    font-size: 14px;
+    line-height: 18px;
+}
+.checkIcon {
+    color: rgb(32, 213, 236);
+    font-size: 14px;
+    margin-left: 10px;
+}

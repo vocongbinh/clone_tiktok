@@ -1,0 +1,17 @@
+.header {
+    position: relative;
+}
+.backBtn {
+    cursor: pointer;
+    font-size: 20px;
+    background-color: transparent;
+    margin-left: 16px;
+}
+.title {
+    position: absolute;
+    font-size: 16px;
+    font-weight: 600;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

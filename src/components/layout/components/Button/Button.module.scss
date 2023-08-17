@@ -1,0 +1,75 @@
+.wrapper {
+    font-size: var(--font-size-default);
+    border-radius: 4px;
+    align-items: center;
+    line-height: 21px;
+    display: inline-flex;
+    min-height: 36px;
+    justify-content: center;
+    padding: 8px 16px;
+    cursor: pointer;
+    border: 1px solid transparent;
+
+    + .wrapper {
+        margin-left: 16px;
+    }
+}
+//type button
+
+.primary {
+    background-color: rgba(254, 44, 85, 1);
+    color: rgba(255, 255, 255, 1);
+    font-weight: 700;
+    &:hover {
+        background-color: #ef2950;
+    }
+}
+.upload {
+    border: 1px solid rgba(22, 24, 35, 0.12);
+    min-width: 110px;
+    background-color: rgba(255, 255, 255, 1);
+    font-weight: 600;
+    font-size: var(--font-size-default);
+    color: #161823;
+    .content {
+        margin-left: 8px;
+    }
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+}
+
+.outline {
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    background-color: #ffffff;
+    &:hover {
+        background-color: rgba(254, 44, 85, 0.06);
+    }
+}
+.round {
+    border-radius: 999px;
+    background-color: #ffffff;
+    border-color: rgba(22, 24, 35, 0.12);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    &:hover {
+        border-color: rgba(22, 24, 35, 0.2);
+        background-color: rgba(255, 255, 255, 1);
+    }
+}
+.text {
+    background-color: transparent;
+}
+
+//size button
+.min {
+    min-width: 90px;
+}
+
+.medium {
+    min-width: 100px;
+}
+
+.prevIcon + .title {
+    margin-left: 8px;
+}
