@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import styles from './Button.module.scss';
+import PropTypes from 'prop-types';
 function Button({ to, href, icon, children, type, size, className, onClick }) {
     let Comp = 'button';
     const props = {
@@ -32,5 +33,16 @@ function Button({ to, href, icon, children, type, size, className, onClick }) {
         </Comp>
     );
 }
+
+Button.propTypes = {
+    to: PropTypes.string,
+    href: PropTypes.string,
+    icon: PropTypes.node,
+    children: PropTypes.node,
+    type: PropTypes.string,
+    size: PropTypes.string,
+    className: PropTypes.string,
+    onClick: PropTypes.func,
+};
 
 export default Button;

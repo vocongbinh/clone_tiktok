@@ -1,22 +1,26 @@
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from './AccountItem.module.scss';
+import { Link } from 'react-router-dom';
 import clsx from 'clsx';
-function AccoumtItem({ account }) {
+import PropTypes from 'prop-types';
+
+function AccoumtItem({ data }) {
     return (
-        <li>
-            <div className={clsx(styles.wrapperItem)}>
-                <img src={account.avatar} className={clsx(styles.avatar)} />
-                <div className={clsx(styles.content)}>
-                    <p className={clsx(styles.accountName)}>
-                        <span> {account.name}</span>
-                        <FontAwesomeIcon className={clsx(styles.checkIcon)} icon={faCheckCircle} />
-                    </p>
-                    <span className={clsx(styles.discription)}>{account.discription}</span>
-                </div>
+        <Link to={`/@${data.nickname}`} className={clsx(styles.wrapperItem)}>
+            <img src={data.avatar} className={clsx(styles.avatar)} />
+            <div className={clsx(styles.content)}>
+                <h4 className={clsx(styles.accountName)}>
+                    <span> {data.full_name}</span>
+                    {data.tick && <FontAwesomeIcon className={clsx(styles.checkIcon)} icon={faCheckCircle} />}
+                </h4>
+                <span className={clsx(styles.discription)}>{data.nickname}</span>
             </div>
-        </li>
+        </Link>
     );
 }
+AccoumtItem.propTypes = {
+    data: PropTypes.object,
+};
 
 export default AccoumtItem;

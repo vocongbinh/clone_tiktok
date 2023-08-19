@@ -34,20 +34,24 @@ function Menu({ children, listOptionItem }) {
 
     return (
         <Tippy
+            visible
             delay={[0, 300]}
             onHidden={() => setHistory((prev) => prev.slice(0, 1))}
-            placement="top-end"
+            placement="bottom-end"
             interactive
             render={(attrs) => (
                 <div {...attrs} className={clsx(styles.wrapper)}>
                     <PopperWrapper>
                         {history.length > 1 && (
                             <Header
+                                className={clsx(styles.header)}
                                 title="language"
                                 onBack={() => setHistory((prev) => prev.slice(0, prev.length - 1))}
                             />
                         )}{' '}
-                        <ul>{renderItem()}</ul>
+                        <div className={clsx(styles.overLayout)}>
+                            <ul>{renderItem()}</ul>
+                        </div>
                     </PopperWrapper>
                 </div>
             )}

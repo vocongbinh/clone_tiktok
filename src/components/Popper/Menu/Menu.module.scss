@@ -1,9 +1,18 @@
 .wrapper {
     width: 223px;
+    display: flex;
+    flex-direction: column;
 }
 
+.header {
+    height: 50px;
+}
 .optionItem {
     &:hover {
         background-color: rgba(22, 24, 35, 0.03);
     }
+}
+.overLayout {
+    overflow-y: overlay;
+    max-height: 500px;
 }

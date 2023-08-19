@@ -1,13 +1,10 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from './Header.module.scss';
 import clsx from 'clsx';
+
 import {
     faAdd,
     faEllipsisVertical,
-    faLanguage,
-    faMagnifyingGlass,
-    faUpload,
-    faXmarkCircle,
     faCircleQuestion,
     faEarthAsia,
     faDownload,
@@ -20,33 +17,17 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { faKeyboard, faSave } from '@fortawesome/free-regular-svg-icons';
 
-import TippyHeadless from '@tippyjs/react/headless';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
-import { useState } from 'react';
-import { toBeInTheDocument } from '@testing-library/jest-dom/matchers';
-import { Wrapper as PopperWrapper } from '~/components/Popper';
-import AccoumtItem from '~/components/layout/components/AccountItem';
+
 import Button from '../Button';
 import Menu from '~/components/Popper/Menu';
+import Image from '~/components/Image';
+import Images from '~/assets/images';
+import SearchLayout from '../SearchLayout';
 
 function Header() {
-    const [accounts, setAccounts] = useState([]);
     const currentUser = true;
-    setTimeout(() => {
-        setAccounts([
-            {
-                avatar: 'https://nhadepso.com/wp-content/uploads/2023/01/199-hinh-anh-pikachu-cute-de-thuong-dang-yeu-nhat-hien-nay_1.jpg',
-                name: 'binh',
-                discription: 'đẹp trai',
-            },
-            {
-                avatar: 'https://nhadepso.com/wp-content/uploads/2023/01/199-hinh-anh-pikachu-cute-de-thuong-dang-yeu-nhat-hien-nay_1.jpg',
-                name: 'binh',
-                discription: 'đẹp trai',
-            },
-        ]);
-    }, 2000);
     const listOptionItem = [
         {
             prevIcon: <FontAwesomeIcon icon={faEarthAsia} />,
@@ -54,6 +35,36 @@ function Header() {
             children: {
                 title: 'Language',
                 data: [
+                    { code: 'vn', name: 'Việt Nam' },
+                    { code: 'en', name: 'English' },
+                    { code: 'vn', name: 'Việt Nam' },
+                    { code: 'en', name: 'English' },
+                    { code: 'vn', name: 'Việt Nam' },
+                    { code: 'en', name: 'English' },
+                    { code: 'vn', name: 'Việt Nam' },
+                    { code: 'en', name: 'English' },
+                    { code: 'vn', name: 'Việt Nam' },
+                    { code: 'en', name: 'English' },
+                    { code: 'vn', name: 'Việt Nam' },
+                    { code: 'en', name: 'English' },
+                    { code: 'vn', name: 'Việt Nam' },
+                    { code: 'en', name: 'English' },
+                    { code: 'vn', name: 'Việt Nam' },
+                    { code: 'en', name: 'English' },
+                    { code: 'vn', name: 'Việt Nam' },
+                    { code: 'en', name: 'English' },
+                    { code: 'vn', name: 'Việt Nam' },
+                    { code: 'en', name: 'English' },
+                    { code: 'vn', name: 'Việt Nam' },
+                    { code: 'en', name: 'English' },
+                    { code: 'vn', name: 'Việt Nam' },
+                    { code: 'en', name: 'English' },
+                    { code: 'vn', name: 'Việt Nam' },
+                    { code: 'en', name: 'English' },
+                    { code: 'vn', name: 'Việt Nam' },
+                    { code: 'en', name: 'English' },
+                    { code: 'vn', name: 'Việt Nam' },
+                    { code: 'en', name: 'English' },
                     { code: 'vn', name: 'Việt Nam' },
                     { code: 'en', name: 'English' },
                 ],
@@ -97,32 +108,7 @@ function Header() {
     return (
         <div className={clsx(styles.wrapper)}>
             <h1> tiktok</h1>
-            <TippyHeadless
-                render={(attrs) => (
-                    <div className={clsx(styles.searchResults)} {...attrs}>
-                        <PopperWrapper>
-                            <ul style={{ listStyleType: 'none' }}>
-                                {accounts.map((account, index) => (
-                                    <AccoumtItem account={account} />
-                                ))}
-                            </ul>
-                        </PopperWrapper>
-                    </div>
-                )}
-                content="search"
-                visible={accounts.length > 0}
-                interactive
-            >
-                <div className={clsx(styles.search)}>
-                    <input className={clsx(styles.searchInput)} placeholder="Search" />
-                    <button className={clsx(styles.clearBtn)}>
-                        <FontAwesomeIcon icon={faXmarkCircle} />
-                    </button>
-                    <button className={clsx(styles.searchBtn)}>
-                        <FontAwesomeIcon icon={faMagnifyingGlass} />
-                    </button>
-                </div>
-            </TippyHeadless>
+            <SearchLayout />
             <div className={clsx(styles.action)}>
                 <Button icon={<FontAwesomeIcon icon={faAdd} />} type="upload">
                     Upload
@@ -153,9 +139,18 @@ function Header() {
                 )}
 
                 <Menu listOptionItem={currentUser ? listOptionUser : listOptionItem}>
-                    <button className={clsx(styles.option)}>
-                        <FontAwesomeIcon icon={faEllipsisVertical} />
-                    </button>
+                    {currentUser ? (
+                        <Image
+                            alt="vo cong binh"
+                            fallbackImg={Images.noImage}
+                            className={clsx(styles.avatarBtn)}
+                            src="ttps://cdn.shoplightspeed.com/shops/633327/files/29258343/ftla-art-kit-painting-acrylic-pikachu.jpg"
+                        />
+                    ) : (
+                        <button className={clsx(styles.option)}>
+                            <FontAwesomeIcon icon={faEllipsisVertical} />
+                        </button>
+                    )}
                 </Menu>
             </div>
         </div>

@@ -1,6 +1,8 @@
 .container {
     display: flex;
     align-items: center;
+    margin-top: var(--default-height);
+    height: 2000px;
 }
 .content {
     flex: 1;
